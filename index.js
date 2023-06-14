@@ -167,7 +167,7 @@ async function run() {
 
     app.get("/payment-history/:id", async (req, res) => {
       const email = req.params.id;
-      const cursor = paymentCollection.find();
+      const cursor = paymentCollection.find({studentEmail:email});
       const result = await cursor.toArray();
       res.send(result);
     });
